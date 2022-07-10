@@ -2,8 +2,10 @@
 
 #include <string>
 #include <unordered_map>
+#include "TMXTileSet.h"
+#include "TMXNode.h"
 
-class TMXMap
+class TMXMap : public TMXNode
 {
 public:
 	TMXMap();
@@ -38,23 +40,7 @@ public:
 	/// </summary>
 	/// <param name="attributes">Attributes</param>
 	void setMapAttributes(std::unordered_map<std::string, std::string> attributes);
-	
-	/// <summary>
-	/// Get an attribute value
-	/// </summary>
-	/// <param name="attributeName">Name of attribute</param>
-	/// <returns>String</returns>
-	std::string GetAttribute(std::string attributeName);
-
-	/// <summary>
-	/// Get an attribute value
-	/// </summary>
-	/// <param name="attributeName">Name of attribute</param>
-	/// <returns>int</returns>
-	int GetAttributeInt(std::string attributeName);
 
 private:
-	std::unordered_map<std::string, std::string> attributes;
-	std::unordered_map<std::string, std::string> tileSets;
-	std::unordered_map<std::string, std::string> layers;
+	std::unordered_map<std::string, TMXTileSet*> tileSets;
 };

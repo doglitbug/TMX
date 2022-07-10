@@ -1,16 +1,17 @@
 #include "Parser.h"
+#include "TMXUtils.h"
 #include <iostream>
 
-dlb::Parser::Parser()
+Parser::Parser()
 {
 }
 
-dlb::Parser::~Parser()
+Parser::~Parser()
 {
 	//TODO Clear mapContainer
 }
 
-bool dlb::Parser::loadMap(std::string mapName,  std::string filename)
+bool Parser::loadMap(std::string mapName,  std::string filename)
 {
 	rapidxml::xml_document<> doc;
 	rapidxml::xml_node<>* mapNode;
@@ -26,24 +27,13 @@ bool dlb::Parser::loadMap(std::string mapName,  std::string filename)
 	//Load the maps data
 
 	//Load map
-	mapContainer[mapName]->setMapAttributes(getAttributesFromNode(mapNode));
+	mapContainer[mapName]->setMapAttributes(TMXUtils::getAttributesFromNode(mapNode));
 	//mapContainer[mapName]->loadTileSets(getAttributesFromNode(mapNode));
 	
 	return true;
 }
 
-TMXMap* dlb::Parser::getMap(std::string mapName)
+TMXMap* Parser::getMap(std::string mapName)
 {
 	return mapContainer[mapName];
-}
-
-std::unordered_map<std::string, std::string> dlb::Parser::getAttributesFromNode(rapidxml::xml_node<>* node)
-{
-	std::unordered_map < std::string, std::string> output;
-
-	for (rapidxml::xml_attribute<char>* attr = node->first_attribute(); attr; attr = attr->next_attribute())
-	{
-		output[attr->name()] = attr->value();
-	}
-	return output;
 }

@@ -21,12 +21,30 @@
     <ClInclude Include="include\TMXMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\TMXTileSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TMXUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TMXNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\Parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\TMXMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\TMXTileSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\TMXUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\TMXNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
