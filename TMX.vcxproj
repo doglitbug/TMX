@@ -71,10 +71,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(MSBuildProjectDirectory)\lib\$(LibrariesArchitecture)</OutDir>
+    <OutDir>$(MSBuildProjectDirectory)\lib\$(LibrariesArchitecture)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(MSBuildProjectDirectory)\lib\$(LibrariesArchitecture)</OutDir>
+    <OutDir>$(MSBuildProjectDirectory)\lib\$(LibrariesArchitecture)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)lib\$(Platform)</OutDir>
@@ -140,9 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Parser.h" />
+    <ClInclude Include="include\TMXMap.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\Parser.cpp" />
+    <ClCompile Include="include\TMXMap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
