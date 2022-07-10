@@ -1,5 +1,4 @@
 #include "Parser.h"
-#include "TMXUtils.h"
 #include <iostream>
 
 Parser::Parser()
@@ -24,11 +23,9 @@ bool Parser::loadMap(std::string mapName,  std::string filename)
 	//And new map to the mapContainer
 	mapContainer[mapName] = new TMXMap();
 
-	//Load the maps data
-
 	//Load map
-	mapContainer[mapName]->setMapAttributes(TMXUtils::getAttributesFromNode(mapNode));
-	//mapContainer[mapName]->loadTileSets(getAttributesFromNode(mapNode));
+	mapContainer[mapName]->loadAttributes(mapNode);
+	mapContainer[mapName]->loadTileSets(mapNode);
 	
 	return true;
 }

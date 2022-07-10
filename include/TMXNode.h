@@ -2,12 +2,16 @@
 
 #include <string>
 #include <unordered_map>
+#include "rapidxml/rapidxml.hpp"
+#include "rapidxml/rapidxml_utils.hpp"
 
 class TMXNode
 {
 public:
 	TMXNode();
 	~TMXNode();
+
+	void loadAttributes(rapidxml::xml_node<>* node);
 
 	std::string GetAttribute(std::string attribute);
 	int GetAttributeInt(std::string attribute);

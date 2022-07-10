@@ -10,6 +10,14 @@ TMXNode::~TMXNode()
 	attributes.clear();
 }
 
+void TMXNode::loadAttributes(rapidxml::xml_node<>* node)
+{
+	for (rapidxml::xml_attribute<char>* attr = node->first_attribute(); attr; attr = attr->next_attribute())
+	{
+		attributes[attr->name()] = attr->value();
+	}
+}
+
 std::string TMXNode::GetAttribute(std::string attributeName)
 {
 	//TODO Return null if not found

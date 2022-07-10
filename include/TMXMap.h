@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 #include <unordered_map>
 #include "TMXTileSet.h"
 #include "TMXNode.h"
@@ -36,11 +37,13 @@ public:
 	int getTileHeight() { return GetAttributeInt("tileheight"); };
 
 	/// <summary>
-	/// Set map attributes in bulk from Parser
+	/// Load up tileSets from XML
 	/// </summary>
-	/// <param name="attributes">Attributes</param>
-	void setMapAttributes(std::unordered_map<std::string, std::string> attributes);
+	/// <param name="node"></param>
+	void loadTileSets(rapidxml::xml_node<>* node);
 
-private:
-	std::unordered_map<std::string, TMXTileSet*> tileSets;
+	TMXTileSet *getTileSet(std::string tileSetName);
+
+	//TODO make private?
+	std::vector<TMXTileSet> tileSets;
 };

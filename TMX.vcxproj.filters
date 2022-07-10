@@ -24,9 +24,6 @@
     <ClInclude Include="include\TMXTileSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\TMXUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\TMXNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -39,9 +36,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\TMXTileSet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="include\TMXUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\TMXNode.cpp">

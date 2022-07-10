@@ -143,13 +143,11 @@
     <ClInclude Include="include\TMXMap.h" />
     <ClInclude Include="include\TMXNode.h" />
     <ClInclude Include="include\TMXTileSet.h" />
-    <ClInclude Include="include\TMXUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\Parser.cpp" />
     <ClCompile Include="include\TMXMap.cpp" />
     <ClCompile Include="include\TMXTileSet.cpp" />
-    <ClCompile Include="include\TMXUtils.cpp" />
     <ClCompile Include="include\TMXNode.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
