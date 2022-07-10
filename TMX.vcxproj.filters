@@ -27,6 +27,9 @@
     <ClInclude Include="include\TMXNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\TMXImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\Parser.cpp">
@@ -39,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\TMXNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\TMXImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

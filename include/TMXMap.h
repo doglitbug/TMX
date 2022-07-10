@@ -12,6 +12,7 @@ public:
 	TMXMap();
 	~TMXMap();
 
+#pragma region Accessors
 	/// <summary>
 	/// Get map width in tiles
 	/// </summary>
@@ -36,14 +37,27 @@ public:
 	/// <returns>int</returns>
 	int getTileHeight() { return GetAttributeInt("tileheight"); };
 
+#pragma endregion
+
 	/// <summary>
-	/// Load up tileSets from XML
+	/// Load up tileSets from XML node
 	/// </summary>
-	/// <param name="node"></param>
+	/// <param name="node">Node to load TileSets from</param>
 	void loadTileSets(rapidxml::xml_node<>* node);
 
-	TMXTileSet *getTileSet(std::string tileSetName);
+	/// <summary>
+	/// Get reference to a TileSet
+	/// </summary>
+	/// <param name="tileSetName">Name of TileSet</param>
+	/// <returns>TMXTileSet *</returns>
+	TMXTileSet* getTileSet(std::string tileSetName);	
 
-	//TODO make private?
+private:
 	std::vector<TMXTileSet> tileSets;
+	/// <summary>
+	/// Load a TileSet from TSX file
+	/// </summary>
+	/// <param name="tileSet">TileSet to load into</param>
+	/// <param name="filePath">Base folder for TSX file</param>
+	void loadTileSet(TMXTileSet& tileSet, std::string filePath);
 };

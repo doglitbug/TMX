@@ -2,6 +2,7 @@
 
 TMXTileSet::TMXTileSet()
 {
+	image = new TMXImage();
 }
 
 TMXTileSet::~TMXTileSet()

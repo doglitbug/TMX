@@ -17,6 +17,8 @@ bool Parser::loadMap(std::string mapName,  std::string filename)
 	rapidxml::file<> file(filename.c_str());
 	doc.parse<0>(file.data());
 
+	//TODO Deal with multiple maps in file, if this is a thing?
+	
 	//Get root node "map"
 	mapNode = doc.first_node("map");
 
@@ -27,6 +29,8 @@ bool Parser::loadMap(std::string mapName,  std::string filename)
 	mapContainer[mapName]->loadAttributes(mapNode);
 	mapContainer[mapName]->loadTileSets(mapNode);
 	
+
+	//TODO Free up rapidXML stuff
 	return true;
 }
 
