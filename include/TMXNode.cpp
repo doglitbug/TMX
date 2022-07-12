@@ -19,15 +19,15 @@ void TMXNode::loadAttributes(rapidxml::xml_node<>* node)
 }
 
 #pragma region Accessors
-std::string TMXNode::GetAttribute(std::string attributeName)
+std::string TMXNode::getAttribute(std::string attributeName)
 {
 	//TODO Return null if not found
 	return attributes[attributeName];
 }
 
-int TMXNode::GetAttributeInt(std::string attributeName)
+int TMXNode::getAttributeInt(std::string attributeName)
 {
 	//TODO return 0 if not found
-	return stoi(GetAttribute(attributeName));
+	return stoi(getAttribute(attributeName));
 }
 #pragma endregion Accessors

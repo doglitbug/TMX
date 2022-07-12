@@ -3,8 +3,10 @@
 #include <string>
 #include <iostream>
 #include <unordered_map>
-#include "TMXTileSet.h"
+
 #include "TMXNode.h"
+#include "TMXTileSet.h"
+#include "TMXLayer.h"
 
 class TMXMap : public TMXNode
 {
@@ -12,30 +14,30 @@ public:
 	TMXMap();
 	~TMXMap();
 
-#pragma region Accessors
+#pragma region Attributes
 	/// <summary>
 	/// Get map width in tiles
 	/// </summary>
 	/// <returns>int</returns>
-	int getWidth() { return GetAttributeInt("width"); };
+	int getWidth() { return getAttributeInt("width"); };
 
 	/// <summary>
 	/// Get map height in tiles
 	/// </summary>
 	/// <returns>int </returns>
-	int getHeight() { return GetAttributeInt("height"); };
+	int getHeight() { return getAttributeInt("height"); };
 
 	/// <summary>
 	/// Get tile width in pixels
 	/// </summary>
 	/// <returns>int</returns>
-	int getTileWidth() { return GetAttributeInt("tilewidth"); };
+	int getTileWidth() { return getAttributeInt("tilewidth"); };
 
 	/// <summary>
 	/// Get tile height in pixels
 	/// </summary>
 	/// <returns>int</returns>
-	int getTileHeight() { return GetAttributeInt("tileheight"); };
+	int getTileHeight() { return getAttributeInt("tileheight"); };
 
 #pragma endregion
 
@@ -46,14 +48,28 @@ public:
 	void loadTileSets(rapidxml::xml_node<>* node);
 
 	/// <summary>
+	/// Load up layers from XML Node
+	/// </summary>
+	/// <param name="node">Node to load Layers from</param>
+	void loadLayers(rapidxml::xml_node<>* node);
+
+	/// <summary>
 	/// Get reference to a TileSet
 	/// </summary>
 	/// <param name="tileSetName">Name of TileSet</param>
 	/// <returns>TMXTileSet *</returns>
-	TMXTileSet* getTileSet(std::string tileSetName);	
+	TMXTileSet* getTileSet(std::string tileSetName);
+
+	/// <summary>
+	/// Get reference to a layer by name
+	/// </summary>
+	/// <param name="layerName">Name of layer</param>
+	/// <returns>TMXLayer *</returns>
+	TMXLayer* getLayer(std::string layerName);
 
 private:
 	std::vector<TMXTileSet> tileSets;
+	std::vector<TMXLayer> layers;
 	/// <summary>
 	/// Load a TileSet from TSX file
 	/// </summary>

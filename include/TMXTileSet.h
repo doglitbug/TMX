@@ -11,7 +11,7 @@ public:
 	TMXTileSet();
 	~TMXTileSet();
 
-	std::string getName() { return GetAttribute("name"); };
+	std::string getName() { return getAttribute("name"); };
 	TMXImage *getImage() { return image; };
 
 private:

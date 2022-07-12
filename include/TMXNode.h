@@ -13,8 +13,8 @@ public:
 
 	void loadAttributes(rapidxml::xml_node<>* node);
 
-	std::string GetAttribute(std::string attribute);
-	int GetAttributeInt(std::string attribute);
+	std::string getAttribute(std::string attribute);
+	int getAttributeInt(std::string attribute);
 protected:
 	std::unordered_map<std::string, std::string> attributes;
 };

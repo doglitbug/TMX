@@ -1,16 +1,16 @@
-#include "Parser.h"
+#include "TMXParser.h"
 #include <iostream>
 
-Parser::Parser()
+TMXParser::TMXParser()
 {
 }
 
-Parser::~Parser()
+TMXParser::~TMXParser()
 {
 	//TODO Clear mapContainer
 }
 
-bool Parser::loadMap(std::string mapName,  std::string filename)
+bool TMXParser::loadMap(std::string mapName,  std::string filename)
 {
 	rapidxml::xml_document<> doc;
 	rapidxml::xml_node<>* mapNode;
@@ -28,13 +28,13 @@ bool Parser::loadMap(std::string mapName,  std::string filename)
 	//Load map
 	mapContainer[mapName]->loadAttributes(mapNode);
 	mapContainer[mapName]->loadTileSets(mapNode);
-	
+	mapContainer[mapName]->loadLayers(mapNode);
 
 	//TODO Free up rapidXML stuff
 	return true;
 }
 
-TMXMap* Parser::getMap(std::string mapName)
+TMXMap* TMXParser::getMap(std::string mapName)
 {
 	return mapContainer[mapName];
 }

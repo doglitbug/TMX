@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Parser.h">
+    <ClInclude Include="include\TMXParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\TMXMap.h">
@@ -30,9 +30,15 @@
     <ClInclude Include="include\TMXImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\TMXLayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TMXData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\Parser.cpp">
+    <ClCompile Include="include\TMXParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\TMXMap.cpp">
@@ -45,6 +51,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="include\TMXImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\TMXLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\TMXData.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

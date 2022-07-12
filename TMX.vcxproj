@@ -139,18 +139,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\Parser.h" />
+    <ClInclude Include="include\TMXParser.h" />
     <ClInclude Include="include\TMXMap.h" />
     <ClInclude Include="include\TMXNode.h" />
     <ClInclude Include="include\TMXTileSet.h" />
     <ClInclude Include="include\TMXImage.h" />
+    <ClInclude Include="include\TMXLayer.h" />
+    <ClInclude Include="include\TMXData.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\Parser.cpp" />
+    <ClCompile Include="include\TMXParser.cpp" />
     <ClCompile Include="include\TMXMap.cpp" />
     <ClCompile Include="include\TMXTileSet.cpp" />
     <ClCompile Include="include\TMXNode.cpp" />
     <ClCompile Include="include\TMXImage.cpp" />
+    <ClCompile Include="include\TMXLayer.cpp" />
+    <ClCompile Include="include\TMXData.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

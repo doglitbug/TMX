@@ -11,7 +11,7 @@ void TMXMap::loadTileSets(rapidxml::xml_node<>* node)
 		tmpTileSet.loadAttributes(tileset_node);
 
 		//Go and load from tsx file if need be!
-		if (tmpTileSet.GetAttribute("source") != "") {
+		if (tmpTileSet.getAttribute("source") != "") {
 			//TODO Un-hardcode the filePath
 			loadTileSet(tmpTileSet, "Assets/maps/");
 		}
@@ -20,18 +20,10 @@ void TMXMap::loadTileSets(rapidxml::xml_node<>* node)
 	}
 }
 
-TMXTileSet* TMXMap::getTileSet(std::string tileSetName)
-{
-	for (unsigned idx{ 0 }; idx < tileSets.size(); ++idx)
-		if (tileSets[idx].getName() == tileSetName)
-			return &tileSets[idx];
-	return nullptr;
-}
-
 void TMXMap::loadTileSet(TMXTileSet &tileSet, std::string filePath)
 {
 	//Get file name from profile tileSet
-	std::string fileName = tileSet.GetAttribute("source");
+	std::string fileName = tileSet.getAttribute("source");
 
 	rapidxml::xml_document<> doc;
 	rapidxml::xml_node<>* node;
@@ -44,5 +36,35 @@ void TMXMap::loadTileSet(TMXTileSet &tileSet, std::string filePath)
 	//Load image
 	tileSet.getImage()->loadAttributes(node->first_node("image"));
 
-	//TODO Load tiles	
+	//TODO Load tiles
+}
+
+void TMXMap::loadLayers(rapidxml::xml_node<>* node)
+{
+	//Loop over all tileSet nodes and push them to tileSet Array
+	for (rapidxml::xml_node<>* layer_node = node->first_node("layer"); layer_node; layer_node = layer_node->next_sibling("layer")) {
+		TMXLayer tmpLayer;
+		tmpLayer.loadAttributes(layer_node);
+
+		//Load data
+		tmpLayer.loadData(layer_node->first_node("data"));
+
+		layers.push_back(tmpLayer);
+	}
+}
+
+TMXTileSet* TMXMap::getTileSet(std::string tileSetName)
+{
+	for (unsigned idx{ 0 }; idx < tileSets.size(); ++idx)
+		if (tileSets[idx].getName() == tileSetName)
+			return &tileSets[idx];
+	return nullptr;
+}
+
+TMXLayer* TMXMap::getLayer(std::string layerName)
+{
+	for (unsigned idx{ 0 }; idx < layers.size(); ++idx)
+		if (layers[idx].getName() == layerName)
+			return &layers[idx];
+	return nullptr;
 }

@@ -4,4 +4,7 @@
 
 class TMXImage : public TMXNode
 {
+	public:
+		TMXImage();
+		~TMXImage();
 };

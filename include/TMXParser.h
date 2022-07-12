@@ -11,11 +11,11 @@
 
 #define DEBUG true
 
-class Parser
+class TMXParser
 {
 public:
-	Parser();
-	~Parser();
+	TMXParser();
+	~TMXParser();
 
 	bool loadMap(std::string mapName, std::string filename);
 	/// <summary>
