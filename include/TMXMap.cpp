@@ -20,7 +20,7 @@ void TMXMap::loadTileSets(rapidxml::xml_node<>* node)
 	}
 }
 
-void TMXMap::loadTileSet(TMXTileSet &tileSet, std::string filePath)
+void TMXMap::loadTileSet(TMXTileSet& tileSet, std::string filePath)
 {
 	//Get file name from profile tileSet
 	std::string fileName = tileSet.getAttribute("source");
@@ -57,6 +57,15 @@ TMXTileSet* TMXMap::getTileSet(std::string tileSetName)
 {
 	for (unsigned idx{ 0 }; idx < tileSets.size(); ++idx)
 		if (tileSets[idx].getName() == tileSetName)
+			return &tileSets[idx];
+	return nullptr;
+}
+
+TMXTileSet* TMXMap::getTileSetForTileID(int tileID)
+{
+	//Step backwards through tileSets until we get the correct one
+	for (unsigned idx{ tileSets.size() - 1 }; idx > 0; --idx)
+		if (tileSets[idx].getAttributeInt("firstgid") <= tileID)
 			return &tileSets[idx];
 	return nullptr;
 }

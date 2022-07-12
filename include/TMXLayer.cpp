@@ -11,7 +11,7 @@ int TMXLayer::getData(int tx, int ty)
 	int height = getAttributeInt("height");
 	//TODO Check for out of bounds
 
-	return data->getData(ty * width + ty);
+	return data->getData(ty * width + tx);
 }
 
 void TMXLayer::loadData(rapidxml::xml_node<>* node)

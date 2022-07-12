@@ -61,6 +61,13 @@ public:
 	TMXTileSet* getTileSet(std::string tileSetName);
 
 	/// <summary>
+	/// Get tile set that contains this tile ID
+	/// </summary>
+	/// <param name="tileID">Global ID for tile</param>
+	/// <returns>TMXTileSet *</returns>
+	TMXTileSet* getTileSetForTileID(int tileID);
+
+	/// <summary>
 	/// Get reference to a layer by name
 	/// </summary>
 	/// <param name="layerName">Name of layer</param>
