@@ -5,8 +5,17 @@ TMXLayer::TMXLayer() {
 }
 TMXLayer::~TMXLayer() {}
 
+int TMXLayer::getData(int tx, int ty)
+{
+	int width = getAttributeInt("width");
+	int height = getAttributeInt("height");
+	//TODO Check for out of bounds
+
+	return data->getData(ty * width + ty);
+}
+
 void TMXLayer::loadData(rapidxml::xml_node<>* node)
 {
 	data->loadAttributes(node);
-	data->setRaw(node->value());
+	data->setRawData(node->value());
 }
