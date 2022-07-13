@@ -64,16 +64,20 @@ TMXTileSet* TMXMap::getTileSet(std::string tileSetName)
 TMXTileSet* TMXMap::getTileSetForTileID(int tileID)
 {
 	//Step backwards through tileSets until we get the correct one
-	for (unsigned idx{ tileSets.size() - 1 }; idx > 0; --idx)
-		if (tileSets[idx].getAttributeInt("firstgid") <= tileID)
+	for (int idx = tileSets.size() - 1; idx >= 0; idx--) {
+		if (tileSets[idx].getAttributeInt("firstgid") <= tileID) {
 			return &tileSets[idx];
+		}
+	}
 	return nullptr;
 }
 
 TMXLayer* TMXMap::getLayer(std::string layerName)
 {
-	for (unsigned idx{ 0 }; idx < layers.size(); ++idx)
-		if (layers[idx].getName() == layerName)
+	for (unsigned idx{ 0 }; idx < layers.size(); ++idx) {
+		if (layers[idx].getName() == layerName) {
 			return &layers[idx];
+		}
+	}
 	return nullptr;
 }
