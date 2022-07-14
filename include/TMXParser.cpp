@@ -36,5 +36,6 @@ bool TMXParser::loadMap(std::string mapName,  std::string filename)
 
 TMXMap* TMXParser::getMap(std::string mapName)
 {
+	//TODO Search for map, return error if not found
 	return mapContainer[mapName];
 }
