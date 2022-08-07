@@ -1,6 +1,7 @@
 # TMX
 Minimal TMX map parser
 
+```
 //Load the default map
 mapTMXParser->loadMap("Starter", "Assets/maps/Starter.tmx");
 
@@ -49,3 +50,4 @@ void Game::renderMap()
 		}
 	}
 }
+```
